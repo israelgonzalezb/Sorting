@@ -4,23 +4,25 @@ def selection_sort( arr ):
     for i in range(0, len(arr) - 1):
         cur_index = i
         smallest_index = cur_index
-        print("________")
-        print(arr[i])
-        print("________")
+        #print("________")
+        #print(arr[i])
+        #print("________")
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc) 
         for j in range(cur_index + 1, len(arr)):
             current_item = arr[i]
             compare_item = arr[j]
-            print(arr[j])
+            #print(arr[j])
             if arr[i] > arr[j]:
-                print(f"{arr[i]} is bigger than {arr[j]}")
+                #print(f"{arr[i]} is bigger than {arr[j]}")
                 arr[i] = compare_item
                 arr[j] = current_item
             elif arr[i] < arr[j]:
-                print(f"{arr[i]} is smaller than {arr[j]}")
+                pass
+                #print(f"{arr[i]} is smaller than {arr[j]}")
             else:
-                print(f"{arr[i]} is the same as {arr[j]}")
+                pass
+                #print(f"{arr[i]} is the same as {arr[j]}")
              
 
         # TO-DO: swap
@@ -38,11 +40,11 @@ def bubble_sort( arr ):
         main_item = arr[i]
         neighbor_item = arr[i+1]
         if main_item > neighbor_item:
-            print(f"Swap {arr[i]} and {arr[i+1]}")
+            #print(f"Swap {arr[i]} and {arr[i+1]}")
             arr[i] = neighbor_item
             arr[i+1] = main_item
             swaps += 1
-    print(f"Swaps: {swaps}")
+    #print(f"Swaps: {swaps}")
     if swaps > 0:
         return bubble_sort(arr)
     else:
