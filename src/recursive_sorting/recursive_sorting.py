@@ -55,23 +55,27 @@ def merge( arrA, arrB ):
                 merged_arr.pop()
                 break
             if j + 1 == len(arrA)+k:
-                print(f"Sliced merged_arr should only contain {arrA}: {merged_arr[0:j+1]}")
-                merged_arr = merged_arr[0:j+1] + arrB
+                print(f"    Sliced merged_arr ({merged_arr}) should only contain {arrA}: {merged_arr[0:j+1]}")
+                merged_arr = merged_arr[0:j+1] + arrB[k:]
                 print(merged_arr)
-                return merged_arr
+                #return merged_arr
 
-    print(merged_arr)
-
-    
+    print(f"Merge output: {merged_arr}")
     return merged_arr
 
-
+# /usr/local/opt/python/bin/python3.7 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
     # TO-DO
-    if len(arr) == 1:
-        print(arr)
-        print("there is one item in this array")
+    test_array = []
+    print("___")
+    print(f"input is {arr}")
+    if len(arr) <= 2:
+        if len(arr) == 2:
+            return merge([arr[0]],[arr[1]])
+        elif len(arr) == 1:
+            return merge([arr[0]],[])
+        print("there are two or less items in this array")
         return arr;
     else:
         first_half = []
@@ -90,9 +94,16 @@ def merge_sort( arr ):
         print(f"The two halves are: {first_half},{second_half}")
         #merged_arr = merge(first_half, second_half)
         #print(f"The merge function returned: {merged_arr}")
-        merge_sort(first_half)
-        merge_sort(second_half)
+        first_half = merge_sort(first_half)
+        second_half = merge_sort(second_half)
 
+        print(f"! sorted first half: {first_half}")
+        print(f"! sorted second half: {second_half}")
+    final_return = merge(first_half, second_half)
+    print(f"Input was: {arr}, final sort is: {final_return}")
+    return final_return
+
+#merge_sort([7,1,8])
 merge_sort([38,27,43,3,9,82,10])
 #merge([35,38,45],[78,79,80])
 
